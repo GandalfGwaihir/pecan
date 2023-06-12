@@ -84,34 +84,23 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
+        docker-compose up -d postgres
+        docker run --rm --network pecan_pecan pecan/db
+        
+        docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
+
+        
+        docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
+        docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
+
         cp docker/env.example .env
         echo "COMPOSE_PROJECT_NAME=pecan" >> .env
         echo "PECAN_VERSION=develop" >> .env
-        echo "UID=$(id -u)" >> .env
-        echo "GID=$(id -g)" >> .env
-        
-        mkdir -p $HOME/volumes/pecan/{lib,pecan,portainer,postgres,rabbitmq,traefik}
-        docker-compose up -d postgres rabbitmq
-        docker pull pecan/db
-        docker run --rm --network pecan_pecan pecan/db
-        
-        docker-compose run --rm bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
 
-        
-        docker-compose run --rm bety user carya illinois "Carya Demo User" carya@example.com 1 1
-        
-        docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
+        docker-compose up -d 
 
-        
-        docker run --rm --network pecan_pecan --volume pecan_pecan:/data pecan/data:develop chown -R "$(id -u).$(id -g)" /data
 
-        docker run --user="$(id -u)" --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
 
-        docker run --rm -v pecan_lib:/rlib pecan/base:develop cp -a /usr/local/lib/R/site-library/. /rlib/
-        
-        cp docker/web/config.docker.php web/config.php
-        docker-compose up -d
-        
     - name: Wait for services to start
       run: |
        
@@ -145,7 +134,7 @@ jobs:
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
             -F 'input_met=AmerifluxLBL' \
-            -F 'email=' \new-branch-for-docker-testing
+            -F 'email=' \
             -F 'notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
 
