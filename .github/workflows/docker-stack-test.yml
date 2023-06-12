@@ -49,9 +49,9 @@ jobs:
           - name: sipnet_r136
             modelID: "1000000014"
             siteID: "678"
-            siteName: "Niwot Ridge Forest/LTER NWT1 (US-NR1)"
-            pftName: "luquillo.late_tropical"
-            metData: "5000000003"
+            siteName: "Southern Pine (Subcategory), Duke Forest Pine"
+            pftName: "temperate.coniferous"
+            metData: "756"
 
     #Add more models below in the above format
 
