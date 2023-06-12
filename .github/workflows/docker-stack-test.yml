@@ -48,9 +48,9 @@ jobs:
         include:
           - name: sipnet_r136
             modelID: "1000000014"
-            siteID: "678"
-            siteName: "Park Falls WLEF (US-PFa)"
-            pftName: "temperate.coniferous"
+            siteID: "676"
+            siteName: "Willow Creek (US-WCr)"
+            pftName: "temperate.deciduous"
             metData: "AmerifluxLBL"
             startDate: "2004/01/01"
             endDate: "2004/12/31"
