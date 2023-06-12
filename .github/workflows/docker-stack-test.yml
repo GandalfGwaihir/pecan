@@ -48,10 +48,10 @@ jobs:
         include:
           - name: sipnet_r136
             modelID: "1000000014"
-            siteID: "622"
-            siteName: "Sylvania Wilderness (US-Syv)"
+            siteID: "772"
+            siteName: "Niwot Ridge Forest/LTER NWT1 (US-NR1)"
             pftName: "temperate.deciduous"
-            metData: "CRUNCEP"
+            metData: "AmerifluxLBL"
 
     #Add more models below in the above format
 
