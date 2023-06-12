@@ -95,7 +95,7 @@ jobs:
 
         cp docker/env.example .env
         echo "COMPOSE_PROJECT_NAME=pecan" >> .env
-        echo "PECAN_VERSION=latest" >> .env
+        echo "PECAN_VERSION=develop" >> .env
 
         docker-compose up -d 
 
