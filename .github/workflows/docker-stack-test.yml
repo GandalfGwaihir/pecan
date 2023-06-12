@@ -48,10 +48,10 @@ jobs:
         include:
           - name: sipnet_r136
             modelID: "1000000014"
-            siteID: "1000000370"
-            siteName: "Southern Pine (Subcategory), Duke Forest Pine"
-            pftName: "temperate.deciduous"
-            metData: "AmerifluxLBL"
+            siteID: "678"
+            siteName: "Park Falls WLEF (US-PFa)"
+            pftName: "boreal.coniferous"
+            metData: "NARR"
 
     #Add more models below in the above format
 
