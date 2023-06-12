@@ -41,19 +41,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix:
-        name:
-            - sipnet_r136
 
-        include:
-          - name: sipnet_r136
-            modelID: "1000000014"
-            siteID: "772"
-            siteName: "Niwot Ridge Forest/LTER NWT1 (US-NR1)"
-            pftName: "temperate.deciduous"
-            metData: "AmerifluxLBL"
-            startDate: "2004/01/01"
-            endDate: "2004/12/31"
 
     #Add more models below in the above format
 
