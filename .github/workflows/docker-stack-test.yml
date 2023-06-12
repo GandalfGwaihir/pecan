@@ -89,17 +89,17 @@ jobs:
         echo "PECAN_VERSION=develop" >> .env
         echo "UID=$(id -u)" >> .env
         echo "GID=$(id -g)" >> .env
-        docker-compose pull
+        
         mkdir -p $HOME/volumes/pecan/{lib,pecan,portainer,postgres,rabbitmq,traefik}
         docker-compose up -d postgres rabbitmq
         docker pull pecan/db
         docker run --rm --network pecan_pecan pecan/db
         
-        docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
+        docker-compose run bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
 
         
-        docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
-        docker pull pecan/data:develop
+        docker-compose run bety user carya illinois "Carya Demo User" carya@example.com 1 1
+        
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
 
         
@@ -111,7 +111,7 @@ jobs:
         
         cp docker/web/config.docker.php web/config.php
         docker-compose up -d
-
+        
     - name: Wait for services to start
       run: |
        
