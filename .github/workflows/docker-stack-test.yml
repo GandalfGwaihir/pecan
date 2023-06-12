@@ -95,10 +95,10 @@ jobs:
         docker pull pecan/db
         docker run --rm --network pecan_pecan pecan/db
         
-        docker-compose run -rm bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
+        docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
 
         
-        docker-compose run -rm bety user carya illinois "Carya Demo User" carya@example.com 1 1
+        docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
         docker pull pecan/data:develop
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
 
@@ -111,7 +111,7 @@ jobs:
         
         cp docker/web/config.docker.php web/config.php
         docker-compose up -d
-        
+
     - name: Wait for services to start
       run: |
        
