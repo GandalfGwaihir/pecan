@@ -129,8 +129,8 @@ jobs:
             -F 'siteid=${{ matrix.siteID }}' \
             -F 'sitename=${{ matrix.siteName }}' \
             -F 'pft[]=${{ matrix.pftName }}' \
-            -F 'start=2002/01/01' \
-            -F 'end=2005/12/31' \
+            -F 'start=2004/01/01' \
+            -F 'end=2004/12/31' \
             -F 'input_met=${{ matrix.metData }}' \
             -F 'email=' \
             -F 'notes=' \
