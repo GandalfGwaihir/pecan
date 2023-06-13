@@ -127,7 +127,7 @@ jobs:
         curl -v -L -X POST -H "Host: pecan.localhost" \
             -F 'hostname=docker' \
             -F 'modelid=1000000014' \
-            -F 'sitegroupid=1' \
+            -F 'sitegroupid=-1' \
             -F 'siteid=756' \
             -F 'sitename=Duke Forest - loblolly pine (US-Dk3)' \
             -F 'pft[]=temperate.coniferous' \
