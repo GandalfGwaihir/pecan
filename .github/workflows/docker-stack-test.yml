@@ -124,28 +124,19 @@ jobs:
     # run SIPNET test
     - name: Run cURL command
       run: |
-        curl 'http://172.17.0.1/pecan/04-runpecan.php' \
-          -H "Host: pecan.localhost" \
-          -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
-          -H 'Accept-Language: en-IN,en-US;q=0.9,en-GB;q=0.8,en;q=0.7' \
-          -H 'Cache-Control: max-age=0' \
-          -H 'Connection: keep-alive' \
-          -H 'Content-Type: application/x-www-form-urlencoded' \
-          -H 'Cookie: PHPSESSID=a826d94a7211b2fc883596cb9050e39f' \
-          -H 'DNT: 1' \
-          -H 'Origin: http://pecan.localhost' \
-          -H 'Referer: http://pecan.localhost/pecan/03-inputs.php' \
-          -H 'Sec-Fetch-Dest: document' \
-          -H 'Sec-Fetch-Mode: navigate' \
-          -H 'Sec-Fetch-Site: same-origin' \
-          -H 'Sec-Fetch-User: ?1' \
-          -H 'Upgrade-Insecure-Requests: 1' \
-          -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36' \
-          -H 'sec-ch-ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"' \
-          -H 'sec-ch-ua-mobile: ?0' \
-          -H 'sec-ch-ua-platform: "Linux"' \
-          --data-raw 'hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&PHPSESSID=a826d94a7211b2fc883596cb9050e39f&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000005&email=&notes=' \
-          --compressed
+        curl -v -L -X POST -H "Host: pecan.localhost" \
+            -F 'hostname=docker' \
+            -F 'modelid=1000000014' \
+            -F 'sitegroupid=-1' \
+            -F 'siteid=756' \
+            -F 'sitename=Duke Forest - loblolly pine (US-Dk3)' \
+            -F 'pft[]=temperate.coniferous' \
+            -F 'start=2004/01/01' \
+            -F 'end=2004/12/31' \
+            -F 'input_met=99000000005' \
+            -F 'email=' \
+            -F 'notes=' \
+        'http://172.17.0.1/pecan/04-runpecan.php'
         
         sleep 200
         curl -v -L -H "Host: pecan.localhost" \
