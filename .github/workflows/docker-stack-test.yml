@@ -129,7 +129,7 @@ jobs:
             -F 'modelid=1000000014' \
             -F 'sitegroupid=1' \
             -F 'siteid=756' \
-            -F 'sitename=Southern Pine (Subcategory), Duke Forest Pine' \
+            -F 'sitename=Duke Forest - loblolly pine (US-Dk3)' \
             -F 'pft[]=temperate.coniferous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
@@ -145,5 +145,9 @@ jobs:
         'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
-                curl -v -L -H "Host: pecan.localhost" \
-        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000001/README.txt'
+             txt'   
+          curl -v -L -H "Host: pecan.localhost" \
+        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000001/README'
+
+        curl -v -L -H "Host: pecan.localhost" \
+        'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=run/99000000001/job.sh'
