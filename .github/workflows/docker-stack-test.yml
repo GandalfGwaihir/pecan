@@ -128,12 +128,12 @@ jobs:
             -F 'hostname=docker' \
             -F 'modelid=1000000014' \
             -F 'sitegroupid=1' \
-            -F 'siteid=1000000370' \
-            -F 'sitename=Yakutsk-Larch (RU-Ylr)' \
-            -F 'pft[]=temperate.deciduous' \
+            -F 'siteid=756' \
+            -F 'sitename=Duke Forest - loblolly pine (US-Dk3)' \
+            -F 'pft[]=temperate.coniferous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
-            -F 'input_met=AmerifluxLBL' \
+            -F 'input_met=99000000005' \
             -F 'email=' \
             -F 'notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
@@ -141,3 +141,8 @@ jobs:
         sleep 200
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'        
+
+
+
+
+        hostname=docker&modelid=1000000014&sitegroupid=-1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&__utma=106807682.1481268696.1686136092.1686503924.1686550986.7&__utmz=106807682.1686136092.1.1.utmcsr%3D%28direct%29%7Cutmccn%3D%28direct%29%7Cutmcmd%3D%28none%29&PHPSESSID=21ee9f312db040f008ab922aef8210ef&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000005&email=&notes=
