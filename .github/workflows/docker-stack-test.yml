@@ -125,17 +125,7 @@ jobs:
     - name: Run cURL command
       run: |
         curl -v -L -X POST -H "Host: pecan.localhost" \
-            -F 'hostname=docker' \
-            -F 'modelid=1000000014' \
-            -F 'sitegroupid=-1' \
-            -F 'siteid=756' \
-            -F 'sitename=Southern Pine (Subcategory), Duke Forest Pine' \
-            -F 'pft[]=temperate.coniferous' \
-            -F 'start=2004/01/01' \
-            -F 'end=2004/12/31' \
-            -F 'input_met=CRUNCEP' \
-            -F 'email=' \
-            -F 'notes=' \
+            --data-raw 'hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&PHPSESSID=a826d94a7211b2fc883596cb9050e39f&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000005&email=&notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
         
         sleep 200
@@ -143,3 +133,5 @@ jobs:
         'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
+
+
