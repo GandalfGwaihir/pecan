@@ -127,8 +127,8 @@ jobs:
             -F 'hostname=docker' \
             -F 'modelid=1000000014' \
             -F 'sitegroupid=1' \
-            -F 'siteid=772' \
-            -F 'sitename=Niwot Ridge Forest/LTER NWT1 (US-NR1)' \
+            -F 'siteid=1000000370' \
+            -F 'sitename=Yakutsk-Larch (RU-Ylr)' \
             -F 'pft[]=temperate.deciduous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
