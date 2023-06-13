@@ -146,4 +146,4 @@ jobs:
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
                 curl -v -L -H "Host: pecan.localhost" \
-        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000062/README.txt'
+        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000001/README.txt'
