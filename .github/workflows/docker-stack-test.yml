@@ -126,7 +126,7 @@ jobs:
       run: |
         curl 'http://172.17.0.1/pecan/04-runpecan.php' -v -L -H "Host: pecan.localhost" -X POST  \
         -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate, br' \
-        -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://pecan.localhost' -H 'Connection: keep-alive' -H 'Referer: http://pecan.localhost/pecan/03-inputs.php' \
+        -H 'Content-Type: application/x-www-form-urlencoded'  -H 'Connection: keep-alive' -H 'Referer: http://pecan.localhost/pecan/03-inputs.php' \
         -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-User: ?1' \
         --data-raw 'hostname=docker&modelid=1000000014&sitegroupid=-1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&__utma=106807682.1481268696.1686136092.1686503924.1686550986.7&__utmz=106807682.1686136092.1.1.utmcsr%3D%28direct%29%7Cutmccn%3D%28direct%29%7Cutmcmd%3D%28none%29&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000005&email=&notes='
         
