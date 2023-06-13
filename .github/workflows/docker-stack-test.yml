@@ -133,13 +133,14 @@ jobs:
             -F 'pft[]=temperate.coniferous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
-            -F 'input_met=AmerifluxLBL' \
+            -F 'input_met=99000000005' \
             -F 'email=' \
             -F 'notes=' \
           'http://172.17.0.1/pecan/04-runpecan.php'
         
           sleep 200
           curl -v -L -H "Host: pecan.localhost" \
-          'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000339&hostname=docker&loglines=100'
+          'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
           curl -v -L -H "Host: pecan.localhost" \
           'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
+
