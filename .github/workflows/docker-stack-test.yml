@@ -133,7 +133,7 @@ jobs:
             -F 'pft[]=temperate.coniferous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
-            -F 'input_met=CRUNCEP' \
+            -F 'input_met=99000000005' \
             -F 'email=' \
             -F 'notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
@@ -147,7 +147,7 @@ jobs:
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
              txt'   
           curl -v -L -H "Host: pecan.localhost" \
-        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000000/README'
+        'http://172.17.0.1/pecan/dataset.php?dataset.php?workflowid=99000000001&type=file&name=run/99000000001/README'
 
         curl -v -L -H "Host: pecan.localhost" \
-        'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=run/99000000000/job.sh'
+        'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=run/99000000001/job.sh'
