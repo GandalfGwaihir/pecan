@@ -124,7 +124,7 @@ jobs:
     # run SIPNET test
     - name: Run cURL command
       run: |
-        curl 'http://pecan.localhost/pecan/04-runpecan.php' \
+        curl 'http://172.17.0.1/pecan/04-runpecan.php' \
           -H "Host: pecan.localhost" \
           -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
           -H 'Accept-Language: en-IN,en-US;q=0.9,en-GB;q=0.8,en;q=0.7' \
