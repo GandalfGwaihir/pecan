@@ -93,6 +93,7 @@ jobs:
         echo "GID=$(id -g)" >> .env
         mkdir -p $HOME/volumes/pecan/{lib,pecan,portainer,postgres,rabbitmq,traefik}
         docker-compose up -d postgres rabbitmq
+        sleep 60
         docker run --rm --network pecan_pecan pecan/db
         
         docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
