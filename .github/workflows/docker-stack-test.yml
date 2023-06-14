@@ -96,6 +96,10 @@ jobs:
         docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
         
+        docker run --rm --network pecan_pecan --volume pecan_pecan:/data pecan/data:develop chown -R "$(id -u).$(id -g)" /data
+
+        docker run --user="$(id -u)" --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
+                
 
         docker-compose up -d 
     - name: Wait for services to start
