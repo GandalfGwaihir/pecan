@@ -94,6 +94,7 @@ jobs:
         
         docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
         docker pull pecan/db
+        docker run --rm --network pecan_pecan pecan/db
         docker-compose run --rm bety initialize
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
         
