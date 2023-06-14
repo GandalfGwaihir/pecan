@@ -84,12 +84,15 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
+        sudo adduser ${USER} docker
         cp docker-compose.dev.yml docker-compose.override.yml
         cp docker/env.example .env
         echo "COMPOSE_PROJECT_NAME=pecan" >> .env
         echo "PECAN_VERSION=develop" >> .env
+        echo "UID=$(id -u)" >> .env
+        echo "GID=$(id -g)" >> .env
         mkdir -p $HOME/volumes/pecan/{lib,pecan,portainer,postgres,rabbitmq,traefik}
-        docker-compose up -d postgres
+        docker-compose up -d postgres rabbitmq
         docker run --rm --network pecan_pecan pecan/db
         
         docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
@@ -100,9 +103,22 @@ jobs:
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data pecan/data:develop chown -R "$(id -u).$(id -g)" /data
 
         docker run --user="$(id -u)" --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
+
+        cp docker/web/config.docker.php web/config.php
                 
 
-        docker-compose up -d 
+        docker-compose up -d traefik
+        docker-compose up -d rabbitmq
+        docker-compose up -d postgres
+        docker-compose up -d bety
+        docker-compose up -d rstudio
+        docker-compose up -d docs
+        docker-compose up -d pecan
+        docker-compose up -d monitor
+        docker-compose up -d executor
+        docker-compose up -d sipnet
+        docker-compose up -d dbsync
+        docker-compose up -d api
     - name: Wait for services to start
       run: |
        
