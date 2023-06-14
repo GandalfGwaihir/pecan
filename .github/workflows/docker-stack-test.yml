@@ -104,7 +104,7 @@ jobs:
 
         docker run --user="$(id -u)" --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
         
-        cp docker/web/config.docker.php web/config.php
+
                 
 
         docker-compose up -d traefik
