@@ -84,6 +84,10 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
+        cp docker/env.example .env
+        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
+        echo "PECAN_VERSION=develop" >> .env
+        mkdir -p $HOME/volumes/pecan/{lib,pecan,portainer,postgres,rabbitmq,traefik}
         docker-compose up -d postgres
         docker run --rm --network pecan_pecan pecan/db
         
@@ -91,9 +95,8 @@ jobs:
         
         docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
-        cp docker/env.example .env
-        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
-        echo "PECAN_VERSION=develop" >> .env
+        
+
         docker-compose up -d 
     - name: Wait for services to start
       run: |
@@ -134,3 +137,7 @@ jobs:
         'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
+
+
+
+        
