@@ -132,7 +132,7 @@ jobs:
             -F 'pft[]=temperate.coniferous' \
             -F 'start=2004/01/01' \
             -F 'end=2004/12/31' \
-            -F 'input_met=CRUNCEP' \
+            -F 'input_met=99000000002' \
             -F 'email=' \
             -F 'notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
@@ -142,7 +142,6 @@ jobs:
         'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
-          
-        hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&PHPSESSID=9456838ab86ac20b7a85ef0ffca4f48e&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000002&email=&notes=
 
-        hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=622&sitename=Sylvania+Wilderness+%28US-Syv%29&PHPSESSID=9456838ab86ac20b7a85ef0ffca4f48e&pft%5B%5D=temperate.deciduous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=CRUNCEP.SIPNET&email=&notes=
+          
+     
