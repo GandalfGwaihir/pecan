@@ -128,7 +128,7 @@ jobs:
               -F 'hostname=docker' \
               -F 'modelid=1000000014' \
               -F 'sitegroupid=1' \
-              -F 'siteid=772  ' \
+              -F 'siteid=772' \
               -F 'sitename=Niwot Ridge Forest/LTER NWT1 (US-NR1)' \
               -F 'pft[]=temperate.deciduous' \
               -F 'start=2004/01/01' \
@@ -145,5 +145,3 @@ jobs:
           'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
 
 
-
-hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=678&sitename=Park+Falls+WLEF+%28US-PFa%29&__utma=106807682.1481268696.1686136092.1686550986.1686721231.8&__utmz=106807682.1686136092.1.1.utmcsr%3D%28direct%29%7Cutmccn%3D%28direct%29%7Cutmcmd%3D%28none%29&PHPSESSID=d4c6cd7d74c2c84232866b7224d9f9a1&_bety_session_id=d4228eebd7a1ea2597850b9ecaa795ed&__utmb=106807682.12.10.1686721231&__utmc=106807682&__utmt=1&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=5000000003&email=&notes=
