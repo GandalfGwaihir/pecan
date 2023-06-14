@@ -84,6 +84,11 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
+        cp docker/env.example .env
+        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
+        echo "PECAN_VERSION=develop" >> .env
+        echo "UID=$(id -u)" >> .env
+        echo "GID=$(id -g)" >> .env
         docker-compose up -d postgres
         docker run --rm --network pecan_pecan pecan/db
         
@@ -91,9 +96,12 @@ jobs:
         
         docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
-        cp docker/env.example .env
-        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
-        echo "PECAN_VERSION=develop" >> .env
+        docker run --rm --network pecan_pecan --volume pecan_pecan:/data pecan/data:develop chown -R "$(id -u).$(id -g)" /data
+
+        docker run --user="$(id -u)" --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
+
+
+        
         docker-compose up -d 
     - name: Wait for services to start
       run: |
@@ -135,3 +143,6 @@ jobs:
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
           
+        hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=756&sitename=Duke+Forest+-+loblolly+pine+%28US-Dk3%29&PHPSESSID=9456838ab86ac20b7a85ef0ffca4f48e&pft%5B%5D=temperate.coniferous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=99000000002&email=&notes=
+
+        hostname=docker&modelid=1000000014&sitegroupid=1&lat=&lon=&siteid=622&sitename=Sylvania+Wilderness+%28US-Syv%29&PHPSESSID=9456838ab86ac20b7a85ef0ffca4f48e&pft%5B%5D=temperate.deciduous&start=2004%2F01%2F01&end=2004%2F12%2F31&input_poolinitcond=-1&input_met=CRUNCEP.SIPNET&email=&notes=
