@@ -84,6 +84,7 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
+        cp docker-compose.dev.yml docker-compose.override.yml
         cp docker/env.example .env
         echo "COMPOSE_PROJECT_NAME=pecan" >> .env
         echo "PECAN_VERSION=develop" >> .env
