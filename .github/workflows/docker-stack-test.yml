@@ -84,20 +84,16 @@ jobs:
     - name: Build and run containers
       run: |
         docker system prune --all --force
-        cp docker/env.example .env
-        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
-        echo "PECAN_VERSION=develop" >> .env
         docker-compose up -d postgres
         docker run --rm --network pecan_pecan pecan/db
         
         docker-compose run  bety user guestuser guestuser "Guest User" guestuser@example.com 4 4
         
         docker-compose run  bety user carya illinois "Carya Demo User" carya@example.com 1 1
-        docker pull pecan/db
-        docker run --rm --network pecan_pecan pecan/db
-        docker-compose run --rm bety initialize
         docker run --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop
-        
+        cp docker/env.example .env
+        echo "COMPOSE_PROJECT_NAME=pecan" >> .env
+        echo "PECAN_VERSION=develop" >> .env
         docker-compose up -d 
     - name: Wait for services to start
       run: |
@@ -120,17 +116,17 @@ jobs:
     - name: Run cURL command
       run: |
         curl -v -L -X POST -H "Host: pecan.localhost" \
-          -F 'hostname=docker' \
-          -F 'modelid=5000000002' \
-          -F 'sitegroupid=1' \
-          -F 'siteid=772' \
-          -F 'sitename=Niwot Ridge Forest/LTER NWT1 (US-NR1)' \
-          -F 'pft[]=temperate.coniferous' \
-          -F 'start=2004/01/01' \
-          -F 'end=2004/12/31' \
-          -F 'input_met=5000000005' \
-          -F 'email=' \
-          -F 'notes=' \
+            -F 'hostname=docker' \
+            -F 'modelid=1000000014' \
+            -F 'sitegroupid=1' \
+            -F 'siteid=756' \
+            -F 'sitename=Southern Pine (Subcategory), Duke Forest Pine' \
+            -F 'pft[]=temperate.coniferous' \
+            -F 'start=2004/01/01' \
+            -F 'end=2004/12/31' \
+            -F 'input_met=CRUNCEP' \
+            -F 'email=' \
+            -F 'notes=' \
         'http://172.17.0.1/pecan/04-runpecan.php'
         
         sleep 200
@@ -138,6 +134,3 @@ jobs:
         'http://172.17.0.1/pecan/08-finished.php?workflowid=99000000001&hostname=docker&loglines=100'
         curl -v -L -H "Host: pecan.localhost" \
         'http://172.17.0.1/pecan/dataset.php?workflowid=99000000001&type=file&name=workflow.Rout'
-
-
-        
