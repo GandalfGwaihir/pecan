@@ -80,7 +80,9 @@ jobs:
     # run SIPNET test
     # run SIPNET test
     - name: Run cURL command
-      run: ./tests/Docker-Stack-Test.sh
+      run: |
+          chmod +x /tests/Docker-Stack-Test.sh
+          /tests/Docker-Stack-Test.sh
 
           
      
