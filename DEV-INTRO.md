@@ -6,6 +6,7 @@ This is a minimal guide to getting started with PEcAn development under Docker. 
 
 Docker is the primary software requirement; it handles all of the other software dependencies. This has been tested on Ubuntu 18.04 and above, MacOS Catalina, and Windows 10 with Windows Subsystem for Linux 2.
 
+
 - Software (installation instructions below):
   - Docker version 19
   - Docker-compose version 1.26
