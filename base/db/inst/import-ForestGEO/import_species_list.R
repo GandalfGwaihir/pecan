@@ -5,6 +5,7 @@ library(data.table)
 library(PEcAn.DB)
 library(RPostgreSQL)
 
+
 ## function from chartr example
 capwords <- function(s, strict = FALSE) {
   cap <- function(s) paste(toupper(substring(s, 1, 1)),
