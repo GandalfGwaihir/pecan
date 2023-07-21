@@ -1,0 +1,23 @@
+repository:
+  # See https://developer.github.com/v3/repos/#edit for all available settings.
+
+  # The name of the repository. Changing this will rename the repository
+  name: pecan
+
+  # A short description of the repository that will show up on GitHub
+  description: The Predictive Ecosystem Analyzer (PEcAn) is an integrated ecological bioinformatics toolbox. 
+
+
+
+labels:
+  - name: Documentation
+    color: a2dcf2
+  - name: Website
+    color: 84b6eb
+  - name: Base
+    color: ffff54
+  - name: Models
+    color: ff8c00
+  - name: Modules
+    color: d93f0b
+  
