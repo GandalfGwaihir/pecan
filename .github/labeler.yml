@@ -5,7 +5,7 @@
 # Add 'Documentation' label to any changes in the documentation
 
 'Documentation':
-  - documentation/**
+  - documentation/README.md
 
 
 # Add 'Website' label to any changes in the web directory
