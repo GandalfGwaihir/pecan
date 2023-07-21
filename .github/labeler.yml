@@ -6,7 +6,7 @@
 
 'Documentation':
   - documentation/**
-  - **.md
+
 
 # Add 'Website' label to any changes in the web directory
 
