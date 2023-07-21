@@ -11,6 +11,8 @@ create.density.df(
   n = 1000,
   ...
 )
+
+
 }
 \arguments{
 \item{samps}{a vector of samples from a distribution}

@@ -9,6 +9,8 @@ if [ -z "${GITHUB_PAT}" ]; then
     exit 0
 fi
 
+
+
 # Clone book_hosted directory if it doesn't exist
 if [ ! -d book_hosted ]; then
     # Set GitHub user
