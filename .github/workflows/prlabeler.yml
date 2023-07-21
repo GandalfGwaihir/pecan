@@ -20,5 +20,3 @@ jobs:
       with:
         set-safe-directory: false
     - uses: actions/labeler@v4
-      with:
-        dot: true
