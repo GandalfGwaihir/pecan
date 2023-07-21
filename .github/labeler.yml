@@ -1,3 +1,32 @@
 #
 # Add project labels
 #
+
+# Add 'Documentation' label to any changes in the documentation
+
+'Documentation':
+  - documentation/**
+  - *.md
+
+# Add 'Website' label to any changes in the web directory
+
+'Website':
+  - web/**
+
+# Add 'Base' label to any changes in the base directory
+
+'Base':
+  - base/**
+
+# Add 'Models' label to any changes in the models directory
+
+'Models':
+  - models/**
+
+# Add 'Modules' label to any changes in the modules directory
+
+'Modules':
+  - modules/**
+
+'GitHub Actions':
+  - .github/workflows/**
