@@ -3,18 +3,20 @@
 # Labels will be applied based on filepath modification in PR.
 # This workflow uses a regex based labeling config file(.github/labeler.yml) to take labeling decision.
 
-name: "PR Labeler"
+name: "Pull Request Labeler"
 on:
 - pull_request_target
+
 jobs:
-  label:
+  triage:
     permissions:
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/labeler@v4
+    - name: work around https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+    - uses: actions/checkout@v3
       with:
-        configuration-path: ".github/labeler.yml"
-        sync-labels: false
+        set-safe-directory: false
+    - uses: actions/labeler@v4
