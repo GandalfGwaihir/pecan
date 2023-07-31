@@ -14,11 +14,10 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - name: work around https://github.com/actions/checkout/issues/766
-      run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-    - uses: actions/checkout@v3
-      with:
-        set-safe-directory: false
     - uses: actions/labeler@v4
       with:
+        configuration-path: ".github/labeler.yml"
         dot: true
+        sync-labels: false
+        
+        
