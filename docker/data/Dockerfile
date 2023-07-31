@@ -7,6 +7,7 @@ ENV FQDN="" \
 
 WORKDIR /work
 
+
 RUN apk --no-cache add bash curl rsync postgresql-client unzip \
     && curl -s -o sites.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/sites.tgz \
     && curl -s -o inputs.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/inputs.tgz \

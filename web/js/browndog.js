@@ -15,6 +15,8 @@ function browndog_add() {
   setTimeout(browndog_run, 10);
 }
 
+
+
 function browndog_del() {
   var node = document.getElementById("browndog_img");
   node.parentNode.removeChild(node);

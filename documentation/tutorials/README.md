@@ -4,6 +4,8 @@
 
 At extention of Demo 1 that illustrates how to compare output of a simple site-level run to data (specifically Ameriflux NEE) and calculate RMSE
 
+
+
 ### MCMC
 
 Introduction to MCMC concepts and diagnostics. Illustrated by applying the PEcAn photosynthesis package to leaf-level photosynthetic data.
