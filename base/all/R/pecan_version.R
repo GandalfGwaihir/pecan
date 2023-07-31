@@ -33,6 +33,7 @@
 #' pecan_version("v1.3", exact = FALSE)
 #'
 #' @export
+
 pecan_version <- function(version = max(PEcAn.all::pecan_releases$version),
                           exact = FALSE) {
   all_pkgs <- as.data.frame(utils::installed.packages())
