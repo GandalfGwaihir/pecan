@@ -7,6 +7,7 @@
 # http://opensource.ncsa.illinois.edu/license.html
 #-------------------------------------------------------------------------------
 
+
 #' @title allom.BayesFit
 #' @name  allom.BayesFit
 #' @aliases allom.BayesFit
