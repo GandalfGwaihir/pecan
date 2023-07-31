@@ -11,6 +11,7 @@
 // Check login
 require("common.php");
 
+
 if ($authentication) {
     open_database();
     if (!check_login()) {
