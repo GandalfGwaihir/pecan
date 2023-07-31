@@ -17,6 +17,7 @@
 ##' For more information on how to use this function see the "Pre-release-database-cleanup" script in the 'vignettes' folder
 ##' or look at the README
 ##'
+
 cull_database_entries <- function(table = NULL, outdir, file_name = NULL, con, machine_id = NULL, table_name = NULL) {
   if (is.null(table)) {
     if (is.null(file_name)) {
