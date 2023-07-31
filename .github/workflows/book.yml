@@ -1,6 +1,7 @@
 name: renderbook
 
 on:
+  
   push:
     branches:
       - master

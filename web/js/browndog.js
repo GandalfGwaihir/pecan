@@ -3,6 +3,8 @@ function browndog_add() {
   var node = document.getElementById("browndog_img");
   if (node) return;
 
+
+  
   var graphic = $("<img>")
     .attr("src", "images/browndog-small-transparent.gif")
     .attr("width", "25")

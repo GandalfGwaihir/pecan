@@ -5,6 +5,7 @@ MAINTAINER Rob Kooper <kooper@illinois.edu>
 ENV FQDN="" \
     PSQL="psql -U bety -h postgres -d bety -q -t -c"
 
+
 WORKDIR /work
 
 RUN apk --no-cache add bash curl rsync postgresql-client unzip \
