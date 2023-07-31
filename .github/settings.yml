@@ -2,29 +2,29 @@
 
 labels:
 
-  - name: Documentation
+  - name: "Documentation"
     color: a2dcf2
 
-  - name: Dockerfile
+  - name: "Dockerfile"
     color: 0052CC
 
-  - name: Website
+  - name: "Website"
     color: 84b6eb
 
-  - name: Base
+  - name: "Base"
     color: 1ED626
 
-  - name: Models
+  - name: "Models"
     color: C5DEF5
 
-  - name: Modules
+  - name: "Modules"
     color: FBCA04
 
-  - name: GitHub Actions
+  - name: "GitHub Actions"
     color: 84b6eb
 
-  - name: Scripts
+  - name: "Scripts"
     color: 3B8924
 
-  - name: Tests
+  - name: "Tests"
     color: ff8c00
