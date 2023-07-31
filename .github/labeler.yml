@@ -12,7 +12,11 @@
   - DEV-INTRO.md
   - README.md
 
+# Add 'Dockerfile' label to any changes in the docker directory
 
+'Dockerfile':
+  - docker/**/Dockerfile
+  
 # Add 'Website' label to any changes in the web directory
 
 'Website':
