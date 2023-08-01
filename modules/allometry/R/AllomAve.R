@@ -7,6 +7,7 @@
 # http://opensource.ncsa.illinois.edu/license.html
 #-------------------------------------------------------------------------------
 
+
 #' @title AllomAve
 #' @name  AllomAve
 #' @aliases AllomAve
