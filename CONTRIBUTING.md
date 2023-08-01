@@ -3,6 +3,7 @@
 Third-party contributions are highly encouraged for PEcAn and will grow the code as well as the understanding of PEcAn and its applications.  The core development team can not add all models that exist to PEcAn or all possible scenarios and analysis that people want to conduct.  Our goal is to keep it as easy as possible for you contribute changes that get things working in your environment. 
 There are a few guidelines that we need contributors to follow so that we can have a chance of keeping on top of things.
 
+
 ## PEcAn CORE vs Models vs Modules
 
 New functionality is typically directed toward modules to provide a slimmer PEcAn Core, reducing the requirements to get PEcAn running on different platforms, especially HPC machines, and to allow greater freedom for modules and models.
