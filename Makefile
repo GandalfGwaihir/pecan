@@ -70,7 +70,14 @@ files_in_dir = $(call drop_parents, $(call recurse_dir, $1))
 # HACK: NA vs TRUE switch on dependencies argument is an ugly workaround for
 # a circular dependency between benchmark and data.land.
 # When this is fixed, can go back to simple `dependencies = TRUE`
+depends_R_pkg = ./scripts/time.sh "depends ${1}" ./scripts/confirm_deps.R ${1} \
+	$(if $(findstring modules/benchmark,$(1)),NA,TRUE)
 
+check_R_pkg = ./scripts/time.sh "check ${1}" Rscript scripts/check_with_errors.R $(strip $(1))
+test_R_pkg = ./scripts/time.sh "test ${1}" Rscript \
+	-e "devtools::test('$(strip $(1))'," \
+	-e "stop_on_failure = TRUE," \
+	-e "stop_on_warning = FALSE)" # TODO: Raise bar to stop_on_warning = TRUE when we can
 
 doc_R_pkg = \
 	$(if \
