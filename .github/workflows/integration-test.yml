@@ -42,7 +42,7 @@ jobs:
         sudo -H python3 -m pip install --upgrade pip
 
       
-        sudo -H pip install cdsapi -y
+        sudo -H pip install cdsapi 
     - name: Run tests
       run: |
         for FILE in modules/data.atmosphere/inst/integrationTests/*; do
