@@ -1,0 +1,46 @@
+name : Integration Tests
+on :
+  # allow manual triggering 
+  workflow_dispatch:
+  
+  # for debugging
+  push:
+  pull_request:
+
+  schedule:
+    # run Thursday 4:30 AM UTC
+  - cron: '30 4 * * 4'    
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    
+    container: 
+      image: pecan/base:develop
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+    - name: CDS API file setup
+      run: |
+        echo "url: https://cds.climate.copernicus.eu/api/v2" >> .cdsapirc
+        echo "key: ${{ secrets.ERA5_API_KEY }}" >> .cdsapirc
+    
+    - name: Print Output to Console
+      run: |
+        cat .cdsapirc
+     
+    - name: Set up Python
+      uses: actions/setup-python@v2
+
+    - name: Install dependencies
+      run: |
+        sudo -H apt install python3-pip
+        sudo -H pip install cdsapi
+    - name: Run tests
+      run: |
+        for FILE in modules/data.atmosphere/inst/integrationTests/*; do
+          Rscript $FILE;
+        done
