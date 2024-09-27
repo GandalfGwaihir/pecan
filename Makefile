@@ -72,9 +72,7 @@ files_in_dir = $(call drop_parents, $(call recurse_dir, $1))
 # When this is fixed, can go back to simple `dependencies = TRUE`
 depends_R_pkg = ./scripts/time.sh "depends ${1}" ./scripts/confirm_deps.R ${1} \
 	$(if $(findstring modules/benchmark,$(1)),NA,TRUE)
-install_R_pkg = ./scripts/time.sh "install ${1}" Rscript \
-	-e ${SETROPTIONS} \
-	-e "devtools::install('$(strip $(1))', upgrade=FALSE)"
+
 check_R_pkg = ./scripts/time.sh "check ${1}" Rscript scripts/check_with_errors.R $(strip $(1))
 test_R_pkg = ./scripts/time.sh "test ${1}" Rscript \
 	-e "devtools::test('$(strip $(1))'," \
@@ -148,6 +146,7 @@ clean:
 .install/devtools: | .install
 	+ ./scripts/time.sh "devtools ${1}" Rscript -e ${SETROPTIONS} -e "if(!requireNamespace('devtools', quietly = TRUE)) install.packages('devtools')"
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .install/roxygen2: | .install .install/devtools
 	+ ./scripts/time.sh "roxygen2 ${1}" Rscript -e ${SETROPTIONS} \
@@ -157,14 +156,17 @@ clean:
 		-e "}"
 	$(eval INSTALLED_ROXYGEN_VERSION := 7.2.3)
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .install/testthat: | .install
 	+ ./scripts/time.sh "testthat ${1}" Rscript -e ${SETROPTIONS} -e "if(!requireNamespace('testthat', quietly = TRUE)) install.packages('testthat')"
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .install/mockery: | .install
 	+ ./scripts/time.sh "mockery ${1}" Rscript -e ${SETROPTIONS} -e "if(!requireNamespace('mockery', quietly = TRUE)) install.packages('mockery')"
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 $(ALL_PKGS_I) $(ALL_PKGS_C) $(ALL_PKGS_T) $(ALL_PKGS_D): | .install/devtools .install/roxygen2 .install/testthat
 
@@ -173,20 +175,25 @@ $(ALL_PKGS_I) $(ALL_PKGS_C) $(ALL_PKGS_T) $(ALL_PKGS_D): | .install/devtools .in
 	+ $(call depends_R_pkg, $(subst .doc/,,$@))
 	$(call doc_R_pkg, $(subst .doc/,,$@))
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .install/%: $$(call files_in_dir, %) .doc/% | $$(@D)
 	+ $(call install_R_pkg, $(subst .install/,,$@))
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .check/%: $$(call files_in_dir, %) | $$(@D)
 	+ $(call check_R_pkg, $(subst .check/,,$@))
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 .test/%: $$(call files_in_dir, %) | $$(@D)
 	$(call test_R_pkg, $(subst .test/,,$@))
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
 
 # Install dependencies declared by Shiny apps
 .shiny_depends/%: $$(call files_in_dir, %) | $$(@D)
 	Rscript scripts/install_shiny_deps.R $(subst .shiny_depends/,shiny/,$@)
 	echo `date` > $@
+	curl -s -I https://api.github.com/orgs/pecanproject | grep ratelimit
